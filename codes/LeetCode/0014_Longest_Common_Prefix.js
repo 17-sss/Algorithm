@@ -24,29 +24,26 @@
  * @return {string}
  */
 function longestCommonPrefix(strs) {
-    if (!strs.length) return "";
+    if (!strs.length) return '';
     if (strs.length < 0 || strs.length > 200) return;
-    
+
     const standard = strs[0];
 
     for (let i = 0; i < standard.length; i++) {
-        const prefix = standard.slice(0, standard.length-i);
+        const prefix = standard.slice(0, standard.length - i);
 
         for (let j = 0; j < strs.length; j++) {
             if (strs[j].length < 0 || strs[j].length > 200) return;
 
-            if (!strs[j].startsWith(prefix))
-                break;
+            if (!strs[j].startsWith(prefix)) break;
 
-            if (strs.length-1 === j)
-                return prefix;
-            
+            if (strs.length - 1 === j) return prefix;
         }
     }
-    return "";
-};
+    return '';
+}
 
-const strs1 = ["flower","flow","flight"];
-const strs2 = ["dog","racecar","car"];
+const strs1 = ['flower', 'flow', 'flight'];
+const strs2 = ['dog', 'racecar', 'car'];
 console.log(longestCommonPrefix(strs1));
 console.log(longestCommonPrefix(strs2));
