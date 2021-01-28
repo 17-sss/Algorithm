@@ -95,23 +95,42 @@ function main() {
 // +. 테스트 코드 ---------
 /*
 function saveThePrisoner(n, m, s) {
-    // return ( (m % n) + (s-1) )	// 왜 오답인지는 모르겠어
     return ( (m + (s-1)) % n ) % n ? ( (m + (s-1)) % n ) : n
+   
+    // ( (m + (s-1)) % n )
+    // ( (m + (s-1)) % n ) % n
+}
+
+function saveThePrisoner2(n, m, s) {    // 왜 오답인지는 모르겠어
+    return ( (m % n) + (s-1) )	
+    
+    // ( (m % n) + (s-1) )
+    // ( (m % n) + (s-1) ) % n
 }
 
 // 입력 값: 5 2 1
 // 결과 값: 2
 console.log(saveThePrisoner(5, 2, 1))
+console.log(saveThePrisoner2(5, 2, 1))
 
 // 입력 값: 5 2 2
 // 결과 값: 3
 console.log(saveThePrisoner(5, 2, 2))
+console.log(saveThePrisoner2(5, 2, 2))
+
 
 // 입력 값: 7 19 2
 // 결과 값: 6
 console.log(saveThePrisoner(7, 19, 2))
+console.log(saveThePrisoner2(7, 19, 2))
 
 // 입력 값: 3 7 3
 // 결과 값: 3
 console.log(saveThePrisoner(3, 7, 3))
+console.log(saveThePrisoner2(3, 7, 3))
+
+// 입력 값: 3 11 3
+// 결과 값: 1
+console.log(saveThePrisoner(3, 11, 3))
+console.log(saveThePrisoner2(3, 11, 3))
 */
