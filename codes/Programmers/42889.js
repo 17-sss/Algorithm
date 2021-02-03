@@ -3,14 +3,14 @@
 
 const { log } = console;
 
-// 1차시, 통과
+// 1차시, 통과 성공
 function solution(N, stages) {
     const tmp = [];
     for(let i = 0; i < N; i++){
         const notClear = stages.filter((v) => (v === i+1)).length;
         const okChallengerCnt = stages.filter((v) => v >= i+1).length;
         log(notClear, okChallengerCnt)
-        tmp.push((notClear / okChallengerCnt));      
+        tmp.push((notClear / okChallengerCnt));              
     }
     
     const arrResult = tmp.map((v, i) => [i+1, v]).sort((a, b) => b[1] - a[1]).map((v) => v[0]);    
