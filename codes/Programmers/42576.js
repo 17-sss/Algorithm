@@ -40,4 +40,3 @@ function solution(participant, completion) {
 solution(["leo", "kiki", "eden"], ["eden", "kiki"]);
 solution(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"]);
 solution(["marina", "josipa", "nikola", "vinko", "filipa"], ["josipa", "filipa", "marina", "nikola"]);
-

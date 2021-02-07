@@ -7,6 +7,7 @@
             2) p와 y의 갯수를 센 후 두 값 비교. (filter 활용)            
 */
 
+// 1차시, 통과 성공
 function solution(s){
     const arrStr = s.toLowerCase().split('');
     const pCnt = arrStr.filter((v) => v === 'p').length;

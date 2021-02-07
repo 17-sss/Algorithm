@@ -10,7 +10,7 @@
             3) 박수가 나오는 걸 방지하기위해 reverse() 해준 뒤 join()
 */
 
-
+// 1차시, 통과 성공
 function solution(n) {
     const result = [];
     let tmpN = n;
