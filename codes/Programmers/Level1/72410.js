@@ -12,12 +12,37 @@
         7단계 new_id의 길이가 2자 이하라면, new_id의 마지막 문자를 new_id의 길이가 3이 될 때까지 반복해서 끝에 붙입니다.
 */
 
-const { log } = console;
+// 1차시, 통과 성공 (2021.04.20)
+function solution(new_id) {
+    new_id = new_id.toLowerCase()           // 1
+        .replace(/[^0-9a-z_.\-]/g, '')      // 2
+        .replace(/\.{2,}/g, '.')            // 3
+        .replace(/^\.|\.$/g, '');           // 4    ( ^\. 는 문자열 시작에 .(점) 이 있는지 체크 )
+                                            //      ( \.$ 는 문자열 끝에 .(점)이 있는지 체크 )
+    if (!new_id)    new_id = "a";           // 5
+    if (new_id.length > 15) {
+        new_id = new_id.substr(0, 15);
+        new_id = new_id.replace(/\.$/, '');
+    }
+    if (new_id.length < 3) {
+        while(new_id.length < 3)
+            new_id += new_id[new_id.length-1];
+    }
 
-// 2차시, 통과 성공
+    return new_id;
+}
+
+solution("...!@BaT#*..y.abcdefghijklm");    // "...!@BaT#*..y.abcdefghijklm"
+solution("z-+.^.");                         // "z--"
+solution("=.=");                            // "aaa"
+solution("123_.def");                       // "123_.def"
+solution("abcdefghijklmn.p");               // "abcdefghijklmn"
+
+/*
+// 2차시, 통과 성공 (2021.02.06)
 function solution(new_id) {
     let answer = new_id;    
-    
+
     answer = answer.toLowerCase()                       // 1
         .replace(/([^-_.0-9a-z])/gi, '')                // 2        이 정규표현식이 오류였음, 괄호빼야했음..숫자나 영문에 있는 괄호.    
         .replace(/\.{2,}/g, '.')                        // 3
@@ -33,16 +58,10 @@ function solution(new_id) {
             answer += answerLast;
         }
     }
-    log(answer);
-    
+
     return answer;
 }
-
-solution("...!@BaT#*..y.abcdefghijklm");    // "...!@BaT#*..y.abcdefghijklm"
-solution("z-+.^.");                         // "z--"
-solution("=.=");                            // "aaa"
-solution("123_.def");                       // "123_.def"
-solution("abcdefghijklmn.p");               // "abcdefghijklmn"
+*/
 
 /*
 // 1차시, 통과 실패

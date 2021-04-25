@@ -1,9 +1,37 @@
 // https://programmers.co.kr/learn/courses/30/lessons/42889
 // 카카오 2019 코딩테스트 - 실패율
 
+// 1차시, 통과 성공 (2021.04.22) ---------------------
+function solution(N, stages) {
+    const answer = [];
+    /* 
+        [1]   1 / 8 = 0.125
+        [2]   3 / 7 = 0.428...
+        [3]   2 / 4 = 0.5
+        [4]   1 / 2 = 0.5
+        [5]   0 / 1 = 0
+    */
+    [...Array(N)].forEach((_, idx) => {
+        const currStagesCnt = stages.length;
+        const notClearCnt = stages.filter((v) => v === idx + 1).length;
+        stages = stages.filter((v) => v > idx + 1);
+
+        const failureRate = notClearCnt / currStagesCnt;
+        answer.push([idx + 1, failureRate]);
+    });
+
+    return answer.sort((a, b) => b[1] - a[1]).map((v) => v[0]);
+}
+
+solution(5, [2, 1, 2, 6, 2, 4, 3, 3]); // [3, 4, 2, 1, 5]
+solution(4, [4, 4, 4, 4, 4]);          // [4, 1, 2, 3]
+
+
+// 1차시, 통과 성공 (2021.02.03) ---------------------
+/*
 const { log } = console;
 
-// 1차시, 통과 성공
+
 function solution(N, stages) {
     const tmp = [];
     for(let i = 0; i < N; i++){
@@ -16,9 +44,7 @@ function solution(N, stages) {
     const arrResult = tmp.map((v, i) => [i+1, v]).sort((a, b) => b[1] - a[1]).map((v) => v[0]);    
     return arrResult;
 }
-
-solution(5, [2, 1, 2, 6, 2, 4, 3, 3]); // [3, 4, 2, 1, 5]
-solution(4, [4, 4, 4, 4, 4]);          // [4, 1, 2, 3]
+*/
 
 /*
     ** 메모 **
