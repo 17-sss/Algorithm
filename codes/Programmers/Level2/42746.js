@@ -2,7 +2,6 @@
 // 가장 큰 수
 
 // 1차시, 통과 실패
-/*
 class Num {
     constructor(num, idx) {
         this.num = num;
@@ -34,4 +33,3 @@ function solution(numbers) {
 
     return result;
 }
-*/
