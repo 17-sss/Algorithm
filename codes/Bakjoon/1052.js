@@ -74,32 +74,34 @@ function main() {
     const getBottleCnt = (n) => {
         let resultCnt = 0;
         while (n > 0) {
-            if (n % 2 === 1) {  // n이 1일 경우에도 1도 % 할꺼니까 cnt는 무조건++ 되겠다.                
+            if (n % 2 === 1) {
+                // n이 1일 경우에도 1도 % 할꺼니까 cnt는 무조건++ 되겠다.
                 resultCnt++;
-                n = (n-1) / 2;
-            } else 
-                n /= 2;                            
+                n = (n - 1) / 2;
+            } else n /= 2;
         }
         return resultCnt;
     };
 
     rl.on('line', (line) => {
-        line.trim().split(" ").map((v) => arrInput.push(+v));
+        line.trim()
+            .split(' ')
+            .map((v) => arrInput.push(+v));
         rl.close();
     }).on('close', () => {
         const [n, k] = arrInput;
         let nTmp = n;
-        
-        while (true) {            
+
+        while (true) {
             // k는 한번에 들고 갈 수 있는 물병 수. 즉, 딱 들어 맞게 (===) 이러지 않아도 됌. (시간초과도 걸림)
             // getBottleCnt에서 4가 나왔는데 k는 5다? 그냥 들고가는거야~~ break.
-            if (getBottleCnt(nTmp) <= k)   break;
-            else {                
+            if (getBottleCnt(nTmp) <= k) break;
+            else {
                 nTmp++;
-            }            
-        };
+            }
+        }
         console.log(nTmp - n);
         process.exit();
     });
-};  
+}
 main();

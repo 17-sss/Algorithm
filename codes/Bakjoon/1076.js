@@ -40,27 +40,39 @@ const rl = readline.createInterface({
     output: process.stdout,
 });
 
-function main () {    
-    const colors = ["black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"];
+function main() {
+    const colors = [
+        'black',
+        'brown',
+        'red',
+        'orange',
+        'yellow',
+        'green',
+        'blue',
+        'violet',
+        'grey',
+        'white',
+    ];
 
     const arrColors = [];
 
-    rl.on('line', (line) => {    
+    rl.on('line', (line) => {
         arrColors.push(line);
-        if (arrColors.length === 3) rl.close();                
-    }).on('close', () => {            
+        if (arrColors.length === 3) rl.close();
+    }).on('close', () => {
         const [color1, color2, multipleColor] = arrColors;
-        let result = colors.indexOf(color1).toString() + colors.indexOf(color2).toString();     // 저항 값 
-        result = Number(result) * (10 ** colors.indexOf(multipleColor));
-        
-        console.log(result);                
+        let result =
+            colors.indexOf(color1).toString() +
+            colors.indexOf(color2).toString(); // 저항 값
+        result = Number(result) * 10 ** colors.indexOf(multipleColor);
+
+        console.log(result);
         process.exit();
     });
-};
+}
 main();
 
-
-// 9차시, 통과 성공 (문제를 제대로 읽자..)  
+// 9차시, 통과 성공 (문제를 제대로 읽자..)
 //      9차시++ 보다 속도는 8ms 빠름, 메모리 & 코드길이는 이게 더 길어
 /*
 const readline = require('readline');
@@ -93,7 +105,6 @@ function main () {
 };
 main();
 */
-
 
 // 8차시. 통과 실패
 /*
@@ -162,7 +173,6 @@ function main () {
 main();
 */
 
-
 // 6차시. 통과 실패
 /*
 const readline = require('readline');
@@ -195,7 +205,6 @@ function main () {
 };
 main();
 */
-
 
 // 5차시. 통과 실패
 /*
@@ -307,7 +316,6 @@ function main () {
 };
 main();
 */
-
 
 // 1차시. 런타임에러
 /*

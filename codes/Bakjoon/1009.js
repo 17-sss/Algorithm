@@ -35,35 +35,37 @@ const rl = readline.createInterface({
     output: process.stdout,
 });
 
-function main () {
+function main() {
     let tc = 0; // 테스트 케이스 카운트
     const arrResult = [];
 
-    rl.on('line', (line) => {       
+    rl.on('line', (line) => {
         if (!tc) {
-            if(isNaN(line))
-                tc = 1
-            else
-                tc = +line;             
-        } else {        
-            arrResult.push(line.trim().split(" ").map(v => +v));
-            
-            if (arrResult.length === tc)    
-                rl.close();
+            if (isNaN(line)) tc = 1;
+            else tc = +line;
+        } else {
+            arrResult.push(
+                line
+                    .trim()
+                    .split(' ')
+                    .map((v) => +v),
+            );
+
+            if (arrResult.length === tc) rl.close();
         }
     }).on('close', () => {
         arrResult.forEach((v, i) => {
             const [a, b] = v;
             let com = 1;
 
-            const reminderB = b % 4 + 4;  
-            com = ((a ** reminderB) % 10) ? ((a ** reminderB) % 10) : 10;
-            
+            const reminderB = (b % 4) + 4;
+            com = a ** reminderB % 10 ? a ** reminderB % 10 : 10;
+
             console.log(com);
         });
         process.exit();
     });
-};
+}
 main();
 
 /*
@@ -101,7 +103,6 @@ rl.on('line', (line) => {
     process.exit();
 });
 */
-
 
 // 3차시. 통과실패(출력초과).
 /*  
