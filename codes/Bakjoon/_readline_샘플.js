@@ -4,15 +4,12 @@ const rl = readline.createInterface({
     output: process.stdout,
 });
 
-function main() {
-
-
-    rl.on('line', (line) => {
-
-        rl.close();
-    }).on('close', () => {
-
-        process.exit();
-    });
+function solution() {
+    // 문제 푸는 곳
 }
-main();
+
+rl.on('line', (line) => {
+    rl.close();
+}).on('close', () => {
+    process.exit();
+});
