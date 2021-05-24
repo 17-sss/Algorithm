@@ -25,6 +25,45 @@
                 >> Only one valid answer exists.
 */
 
+// (2021.05.24)
+// 2차 시도, 통과 성공
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+const twoSum = (nums, target) => {
+    // StartPoint: SP
+    // EndPoint: EP
+    let SP = 0;
+    let EP = nums.length - 1;
+
+    while (SP <= nums.length - 1) {
+        if (nums[SP] + nums[EP] === target) return [SP, EP];
+        if (EP === SP + 1) {
+            SP++;
+            EP = nums.length - 1;
+        } else EP--;
+    }
+};
+
+// 1차 시도, 통과 성공 (Brute Force 같은데 위에꺼보다 왜 이게 더 빠르지..)
+const twoSum = (nums, target) => {
+    const result = [];
+
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+                result.push(i, j);
+            }
+        }
+    }
+    return result;
+};
+
+// ================================================================================================
+
+// (2021.01.13)
 // Ver 1
 /**
  * @param {number[]} nums
@@ -67,16 +106,16 @@ function twoSum (nums, target) {
  * @param {number} target
  * @return {number[]}
  */
-function twoSum (nums, target) {
+function twoSum(nums, target) {
     const result = [];
 
-    if (nums.length < 2 || nums.length > (10**3))  return;
-    if (target < -(10**9) || target > (10**9)) return;
+    if (nums.length < 2 || nums.length > 10 ** 3) return;
+    if (target < -(10 ** 9) || target > 10 ** 9) return;
 
     for (let i = 0; i < nums.length; i++) {
-        if (nums[i] < -(10**9) || nums[i] > (10**9)) return;
-        
-        for (let j = i+1; j < nums.length; j++) {
+        if (nums[i] < -(10 ** 9) || nums[i] > 10 ** 9) return;
+
+        for (let j = i + 1; j < nums.length; j++) {
             if (nums[i] + nums[j] === target) {
                 result.push(i, j);
             }
@@ -84,21 +123,20 @@ function twoSum (nums, target) {
     }
 
     return result;
-};
+}
 // ---
-
 
 let target = 0;
 
-const nums1 = [2,7,11,15];
+const nums1 = [2, 7, 11, 15];
 target = 9;
 console.log(twoSum(nums1, target));
 
-const nums2 = [3,2,4];
+const nums2 = [3, 2, 4];
 target = 6;
 console.log(twoSum(nums2, target));
 
-const nums3 = [3,3];
+const nums3 = [3, 3];
 target = 6;
 console.log(twoSum(nums3, target));
 
