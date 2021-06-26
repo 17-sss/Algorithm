@@ -14,16 +14,18 @@
 
 function solution(n) {
     const arrTmp = [];
-    
-    while(n > 0) {
+
+    while (n > 0) {
         const remainder = n % 3;
         arrTmp.push(remainder);
-        
+
         n = Math.floor(n / 3);
     }
-    
-    return arrTmp.reverse().reduce((prev, curr, i) => prev += (curr * (3**i)), 0);
+
+    return arrTmp
+        .reverse()
+        .reduce((prev, curr, i) => (prev += curr * 3 ** i), 0);
 }
 
-solution(45);   // 7
-solution(125);  // 229
+solution(45); // 7
+solution(125); // 229
