@@ -19,8 +19,8 @@ function solution(n) {
 
             3. 후위순회
             DFS(v * 2);
-            answer += v + ' ';
             DFS(v * 2 + 1);
+            answer += v + ' ';
             */
         }
     }
