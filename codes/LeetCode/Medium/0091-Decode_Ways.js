@@ -29,7 +29,7 @@ const numDecodings = (s) => {
         // 2-1) strSize - 2 위치의 숫자가 numSet에 존재한다면 맨 뒤 첫글자의 디코딩 케이스 값을 대입. 
         //      아니라면 0 (0일 경우는 strSize - 2 위치의 문자가 "0"이 아니라면 해당됨)
         (numSet.has(s[strSize - 2]) ? result[strSize - 1] : 0) +
-        Number(numSet.has(twoChar)); // 2-2) 맨 뒤 두글자가 디코딩이 되는지 확인.
+        Number(numSet.has(twoChar)); // 2-2) 맨 뒤 두글자가 디코딩이 되는지 확인
                                      //      디코딩된다면 1을 추가하여 2-1) 의 값과 더하여 result[strSize - 2]에 대입.
 
     // 3) 맨 뒤 첫글자 & 두글자의 디코딩 케이스는 계산했으니 그 값들을 기반으로
