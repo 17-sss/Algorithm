@@ -65,4 +65,6 @@ const maxSubArray = (nums) => {
 
     return { finalMaxVal, resultSubArray };
 };
+
+maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]); // { finalMaxVal: 6, resultSubArray: [4,-1,2,1] }
 // ----
