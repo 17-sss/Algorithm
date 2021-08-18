@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function clickRedirectHandler(e) {
+      console.log(e);
+      if (!confirm('ask')) return e.preventDefault();
+      return true;
+    }
+
+    // function setClickRedirectHandler(e) {
+    //   if (!confirm('ask')) return e.preventDefault();
+    //   return true;
+    // }
+
+    // Example case
+    document.body.innerHTML = `
+        <a href='#' onclick='((e) => clickRedirectHandler(e))'>
+            <span>*</span>
+            <span>*</span>
+            <span>*</span>
+            <span>*</span>
+            <span>*</span>
+        </a>`;
+    // console.log(document.body.innerHTML);
+  </script>
+</html>
