@@ -1,6 +1,8 @@
 // https://programmers.co.kr/learn/courses/30/lessons/64065
 // 2019 카카오 개발자 겨울 인턴십 : 튜플
 
+// (2021.09.14) ---------------------
+
 const solution = (s) =>
   [
     ...s
@@ -8,7 +10,7 @@ const solution = (s) =>
       .split(',')
       .reduce((map, curr) => (map.has(curr) ? map.set(curr, map.get(curr) + 1) : map.set(curr, 1)), new Map()),
   ] // 중괄호들 모두 제거 -> 배열화 -> Map을 생성해 원소들을 카운팅 -> 배열로 변환
-    .sort((a, b) => b[1] - a[1])    // 배열화된 Map의 value를 내림차순으로 정렬
+    .sort((a, b) => b[1] - a[1]) // 배열화된 Map의 value를 내림차순으로 정렬
     .map((v) => +v[0]); // Map의 key만으로 이루어진 배열을 반환 (숫자로 변환하면서 만듬)
 
 console.log(
