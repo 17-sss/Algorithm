@@ -6,6 +6,9 @@
   2. 생각.
     - 이해하기론 왼쪽의 마지막 노드의 깊이와 오른쪽의 마지막 노드 깊이를 비교했을 때 
       1 이상 차이나면 균형 트리가 아닌 듯! (후위순회로 돌아야 함)
+
+  * 참고
+    https://velog.io/@lucid/LeetCode-110.-Balanced-Binary-Tree
 */
 
 class TreeNode {
