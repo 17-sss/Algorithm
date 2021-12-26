@@ -1,4 +1,37 @@
-// ME (2차시 / 성공)
+// ME (3차시 / 다른 방법)
+const createSum = (arr) => arr.reduce((prev, curr) => prev + curr, 0);
+function solution(m, product) {
+  product.sort((a, b) => createSum(a) - createSum(b));
+  let result = Number.MIN_SAFE_INTEGER;
+  for (let i = 0; i < product.length; i++) {
+    let cnt = 0;
+    let currMoney = 0;
+    for (let j = 0; j < product.length; j++) {
+      let price = product[j][0];
+      const deliveryFee = product[j][1];
+      if (i === j) price = Math.floor(price / 2);
+      const currTotal = price + deliveryFee;
+      if (m >= (currMoney + currTotal)) {
+        currMoney += currTotal;
+        cnt++;
+      }
+    }
+    result = Math.max(result, cnt);
+  }
+  return result;
+}
+
+const arr = [
+  [6, 6],
+  [2, 2],
+  [4, 3],
+  [4, 5],
+  [10, 3],
+];
+console.log(solution(28, arr));
+
+// ME (2차시 / 성공) (md 파일에 기재)
+/* 
 const createSum = (arr) => arr.reduce((prev, curr) => prev + curr, 0);
 function solution(m, product) {
   let result = Number.MIN_SAFE_INTEGER;
@@ -30,6 +63,7 @@ const arr = [
   [10, 3],
 ];
 console.log(solution(28, arr));
+*/
 
 // ME (1차시 / 성공 : 너무 김)
 /* 
