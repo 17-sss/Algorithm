@@ -1,9 +1,57 @@
 // https://programmers.co.kr/learn/courses/30/lessons/43165
 // 메뉴 리뉴얼 (2021 KAKAO BLIND RECRUITMENT)
 
+// (2022.01.04) ---------------------
+// 3차시, 보류. (어질하네)
+/* 
+function createAllMenu(orders) {
+  const set = new Set();
+  for (let i = 0; i < orders.length; i++) {
+    const order = orders[i];
+    for (let j = 0; j < order.length; j++) {
+      const char = order[j];
+      set.add(char);
+    }
+  }
+  return [...set].sort();
+}
+
+function createAllCase(allMenu) {
+  const set = new Set();
+  for (let i = 0; i < allMenu.length; i++) {
+    const v1 = allMenu[i];
+    for (let j = i + 1; j < allMenu.length; j++) {
+      const v2 = allMenu[j];
+      set.add(v1 + v2);
+    }
+  }
+  return [...set].sort();
+}
+
+function solution(orders, course) {
+  const allCase = createAllCase(createAllMenu(orders));
+  const map = new Map(allCase.map((v) => [v, 0]));
+  orders.forEach((order) => {
+    const currCase = createAllCase(order.split(''));
+    currCase.forEach((v) => map.has(v) && map.set(v, map.get(v) + 1));
+  });
+
+  const result = [...map].filter(([_, value]) => course.includes(value))
+  return result;
+}
+
+const pipeLog = (...funcs) => funcs.forEach((func) => console.log(func));
+pipeLog(
+  solution(['ABCFG', 'AC', 'CDE', 'ACDE', 'BCFG', 'ACDEH'], [2, 3, 4]), // ["AC", "ACDE", "BCFG", "CDE"]
+  solution(['ABCDE', 'AB', 'CD', 'ADE', 'XYZ', 'XYZ', 'ACD'], [2, 3, 5]), // ["ACD", "AD", "ADE", "CD", "XYZ"]
+  solution(['XYZ', 'XWY', 'WXA'], [2, 3, 4]), // ["WX", "XY"]
+);
+*/
+
 // (2021.05.02) ---------------------
 
-// 2차시, 또 실패. 모든 경우의 수를 찾고 싶다..
+// 2차시, 또 실패. 모든 경우의 수를 찾는 법은?
+/*
 class Menu {
     createAllCase(orders, course) {
         // 모든 단품 메뉴
@@ -90,7 +138,7 @@ const solution = (orders, course) => {
 };
 
 solution(['ABCFG', 'AC', 'CDE', 'ACDE', 'BCFG', 'ACDEH'], [2, 3, 4]);
-
+*/
 // 1차시, 연구하다가 중단. (내 힘으로 풀 수 있길 바랬다)
 /*
 // [F] 모든 경우의 수를 계산하는 createAllCase
@@ -155,8 +203,5 @@ function solution(orders, course) {
 
     return answer;
 }
-*/
-
-
-
 solution(['ABCFG', 'AC', 'CDE', 'ACDE', 'BCFG', 'ACDEH'], [2, 3, 4]); // ["AC", "ACDE", "BCFG", "CDE"]
+*/
