@@ -1,0 +1,47 @@
+// ME
+function solution(s) {
+  let result = '';
+
+  const map = new Map();
+  let max = Number.MIN_SAFE_INTEGER;
+
+  for (let i = 0; i < s.length; i++) {
+    const key = s[i];
+    let value = 1;
+
+    if (map.has(key)) {
+      value += map.get(key);
+      map.set(key, value);
+    } else map.set(key, value);
+
+    max = Math.max(max, value);
+    if (max === value) result = key;
+  }
+
+  return result;
+}
+
+console.log(solution('BACBACCACCBDEDE')); // "C"
+
+// ---------------------------
+
+// ANSWER
+function solution(s) {
+  let answer;
+  let sH = new Map();
+  for (let x of s) {
+    if (sH.has(x)) sH.set(x, sH.get(x) + 1);
+    else sH.set(x, 1);
+  }
+  let max = Number.MIN_SAFE_INTEGER;
+  for (let [key, val] of sH) {
+    if (val > max) {
+      max = val;
+      answer = key;
+    }
+  }
+  return answer;
+}
+
+let str = 'BACBACCACCBDEDE';
+console.log(solution(str));

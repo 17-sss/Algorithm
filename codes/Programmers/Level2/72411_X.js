@@ -2,8 +2,45 @@
 // 메뉴 리뉴얼 (2021 KAKAO BLIND RECRUITMENT)
 
 // (2022.01.04) ---------------------
-// 3차시, 보류. (어질하네)
+
+// 4차시, 통과 실패
+// 참고 (https://velog.io/@sqaurelu/ALGO-프로그래머스-메뉴-리뉴얼자바스크립트-javascript)
+function setCombinationMap(map, idx, order, courseNum, arrItems = []) {
+  if (arrItems.length === courseNum) {
+    const strItem = arrItems.sort().join('');
+    return map.has(strItem) ? map.set(strItem, map.get(strItem) + 1) : map.set(strItem, 1);
+  }
+
+  for (let i = idx; i < order.length; i++) {
+    const orderItem = order[i];
+    setCombinationMap(map, i + 1, order, courseNum, [...arrItems, orderItem]);
+  }
+}
+
+function solution(orders, course) {
+  const combiMap = new Map();
+  orders.forEach((order) => course.forEach((courseNum) => setCombinationMap(combiMap, 0, order, courseNum)));
+  const arrSortFilter = [...combiMap.entries()]
+    .filter(([_, value]) => course.includes(value))
+    .sort((a, b) => b[1] - a[1]);
+
+  return course.reduce((result, courseNum) => {
+    const arrItems = arrSortFilter.filter(([key, _]) => key.length === courseNum);
+    const currMax = Math.max(...arrItems.map(([_, value]) => value));
+    result.push(...arrItems.filter(([_, value]) => currMax === value).map(([key, _]) => key));
+    return result;
+  }, []).sort();
+}
+
+const pipeLog = (...funcs) => funcs.forEach((func) => console.log(func));
+pipeLog(
+  solution(['ABCFG', 'AC', 'CDE', 'ACDE', 'BCFG', 'ACDEH'], [2, 3, 4]), // ["AC", "ACDE", "BCFG", "CDE"]
+  solution(['ABCDE', 'AB', 'CD', 'ADE', 'XYZ', 'XYZ', 'ACD'], [2, 3, 5]), // ["ACD", "AD", "ADE", "CD", "XYZ"]
+  solution(['XYZ', 'XWY', 'WXA'], [2, 3, 4]), // ["WX", "XY"]
+);
+
 /* 
+// 3차시, 실패 (중도 포기)
 function createAllMenu(orders) {
   const set = new Set();
   for (let i = 0; i < orders.length; i++) {
@@ -39,13 +76,6 @@ function solution(orders, course) {
   const result = [...map].filter(([_, value]) => course.includes(value))
   return result;
 }
-
-const pipeLog = (...funcs) => funcs.forEach((func) => console.log(func));
-pipeLog(
-  solution(['ABCFG', 'AC', 'CDE', 'ACDE', 'BCFG', 'ACDEH'], [2, 3, 4]), // ["AC", "ACDE", "BCFG", "CDE"]
-  solution(['ABCDE', 'AB', 'CD', 'ADE', 'XYZ', 'XYZ', 'ACD'], [2, 3, 5]), // ["ACD", "AD", "ADE", "CD", "XYZ"]
-  solution(['XYZ', 'XWY', 'WXA'], [2, 3, 4]), // ["WX", "XY"]
-);
 */
 
 // (2021.05.02) ---------------------
@@ -139,6 +169,7 @@ const solution = (orders, course) => {
 
 solution(['ABCFG', 'AC', 'CDE', 'ACDE', 'BCFG', 'ACDEH'], [2, 3, 4]);
 */
+
 // 1차시, 연구하다가 중단. (내 힘으로 풀 수 있길 바랬다)
 /*
 // [F] 모든 경우의 수를 계산하는 createAllCase
