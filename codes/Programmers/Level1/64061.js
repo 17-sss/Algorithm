@@ -1,42 +1,83 @@
 // https://programmers.co.kr/learn/courses/30/lessons/64061
 // 크레인 인형뽑기 게임
-const { log } = console;
+
+// (2022.01.07) ---------------------
+
+// 3차시, 통과 성공 (2차시보다 조금 더 빠름)
+function solution(board, moves) {
+  const stack = [];
+  let result = 0;
+  moves.forEach((move) => {
+    const col = move - 1;
+    let row = 0;
+    while (row < board.length) {
+      const item = board[row][col];
+      if (item) {
+        if (stack.length && stack[stack.length - 1] === item) {
+          stack.pop();
+          result += 2;
+        } else stack.push(item);
+        board[row][col] = 0;
+        break;
+      }
+      row++;
+    }
+  });
+  return result;
+}
+
+console.log(
+  solution(
+    [
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 0, 3],
+      [0, 2, 5, 0, 1],
+      [4, 2, 4, 4, 2],
+      [3, 5, 1, 3, 1],
+    ],
+    [1, 5, 3, 5, 1, 2, 1, 4],
+  ),
+); // 4
+
+// (2021.04.07) ---------------------
 
 // 2차시, 통과 성공
-const solution = (boards, moves) => {
-    let result = 0;
-    let basket = [];
-
-    /* 
+/* 
+    - 메모
         [0, 0, 0, 0, 0], 
         [0, 0, 1, 0, 3], 
         [0, 2, 5, 0, 1], 
         [4, 2, 4, 4, 2], 
         [3, 5, 1, 3, 1]
-        
+
         1, 5, 3, 5, 1, 2, 1, 4
     */
+/* 
+const solution = (boards, moves) => {
+  let result = 0;
+  let basket = [];
 
-    moves.forEach((move) => {
-        for (let i = 0; i < boards.length; i++) {
-            const board = boards[i];
-            const currItem = board[move - 1];
+  moves.forEach((move) => {
+    for (let i = 0; i < boards.length; i++) {
+      const board = boards[i];
+      const currItem = board[move - 1];
 
-            if (currItem) {
-                if (basket[basket.length - 1] === currItem) {
-                    result += 2;
-                    basket.pop();
-                } else {
-                    basket.push(currItem);
-                }
-                board[move - 1] = 0;
-                break;
-            }
+      if (currItem) {
+        if (basket[basket.length - 1] === currItem) {
+          result += 2;
+          basket.pop();
+        } else {
+          basket.push(currItem);
         }
-    });
+        board[move - 1] = 0;
+        break;
+      }
+    }
+  });
 
-    return result;
+  return result;
 };
+*/
 
 // ------------------------------------------------------------
 

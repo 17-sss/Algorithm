@@ -1,7 +1,7 @@
 // https://programmers.co.kr/learn/courses/30/lessons/42842
 // 카펫
 
-// (2021.01.01) ---------------------
+// (2022.01.01) ---------------------
 
 // 2차시, 통과 성공 (공식 참고:https://mozzioi.tistory.com/95)
 function solution(brown, yellow) {
