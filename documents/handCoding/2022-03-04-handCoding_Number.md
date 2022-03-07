@@ -30,7 +30,8 @@ options: { hide: true }
 
   - 변환하려는 숫자를 (2, 8, 16진수)로 나누어 몫이 1이 되어 나누어지지 않을 때까지 나눠줌.
 
-- **참고자료**
+
+**[참고자료]**
   - [이진 탐색(Binary Search) 알고리즘 개념 이해 및 추가 예제](https://cjh5414.github.io/binary-search/)
   - [[이진탐색] Leet code 704. Binary Search](https://velog.io/@rmswjdtn/이진탐색-Leet-code-704.-Binary-Search)
   - [[진법변환] 2진수,8진수,10진수,16진수 쉽게 변환하는 방법 알아보기!](https://m.blog.naver.com/icbanq/221727893563)

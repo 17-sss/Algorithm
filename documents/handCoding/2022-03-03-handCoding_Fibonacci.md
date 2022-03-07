@@ -26,7 +26,8 @@ options: { hide: true }
   - **_F𝗇 = F𝗇 - ₁ + F𝗇 - ₂_**
   - 단, **_F₁ = F₂ = 1_**
 - 만약 `10`이 주어졌을 경우 `55`(`[1, 1, 2, 3, 5, 8, 13, 21, 34, 55]`)을 반환해야 함
-- **참고자료**
+
+**[참고자료]**
   - [JW MATHidea : 피보나치 수열](https://jwmath.tistory.com/117)
   - [코딩 스낵 : 재귀 (2) - 피보나치 수열 (Fibonacci Series)](https://gusdnd852.tistory.com/95)
 

@@ -37,7 +37,8 @@ options: { hide: true }
   - 해시 테이블은 어떤 특정 값을 받으면 그 값을 해시 함수에 통과시켜 나온 인덱스(index)에 저장하는 자료 구조
   - 보통 배열을 사용해서 구현하는 경우가 많음.
 
-- **참고자료**
+
+**[참고자료]**
   - [[DS] 링크드 리스트 (Linked List)](https://hudi.blog/ds-linked-list/)
   - [자바스크립트로 해시테이블 구현하는 방법 : 1](https://eunjinii.tistory.com/m/87)
   - [자바스크립트로 해시테이블 구현하는 방법 : 2](https://eunjinii.tistory.com/m/88)

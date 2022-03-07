@@ -33,7 +33,8 @@ options: { hide: true }
   - 정수는 양의 정수를 사용하며 팩토리얼을 표시하는 기호는 `!`를 사용
   - `**5!**` = `(1 * 2 * 3 * 4 * 5)` 를 의미
 
-- **참고자료**
+
+**[참고자료]**
   - [JavaScript로 최대공약수(GCD), 최소공배수(LCM) 구하기](https://velog.io/@devjade/JavaScript로-최대공약수GCD-최소공배수LCM-구하기)
   - [[Q&A] 팩토리얼(Factorial) 구하기](https://m.blog.naver.com/tipsware/221234390769)
 
