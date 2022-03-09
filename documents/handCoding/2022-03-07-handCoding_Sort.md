@@ -81,6 +81,10 @@ function solution(arr, isDesc = false) {
 solution([3, 5, 6, 9, 7]);
 ```
 
+- 반복문 `i`가 1회전 순회할 때마다, 배열의 `i`번째 원소는 정렬이 된 것임.  
+- 반복문 `j`내에서 반복문 `i`에 선언한 `tmpIdx`의 값을 조건에 따라 계속 업데이트 함.  
+  (만약 오름차순이라면 큰 값이 뒤로 감)
+
 <br/>
 
 <h3 id="02">02. 버블정렬을 구현해보세요.</h3>
@@ -91,7 +95,7 @@ function solution(arr, isDesc = false) {
   const MAX_LOOP = arr.length - 1;
   let nLoopCnt = 0;
   while (nLoopCnt < MAX_LOOP) {
-    for (let i = 0; i < MAX_LOOP; i++) {
+    for (let i = 0; i < MAX_LOOP - nLoopCnt; i++) { // 1️⃣
       const flag = isDesc ? arr[i] < arr[i + 1] : arr[i] > arr[i + 1];
       if (flag) [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
     }
@@ -101,6 +105,10 @@ function solution(arr, isDesc = false) {
 }
 solution([3, 5, 6, 9, 7]);
 ```
+- 순회할 때마다 뒷 쪽에 있는 값은 체크할 필요 없음 - 1️⃣  
+  (이론상 매 순회마다 뒷 쪽에 있는 값은 정렬이 되었으니까.)
+  - 1회전 할 때, 배열내의 맨 뒤에 있는 값은 정렬이 된 것
+  - 2회전 할 때, 배열내의 맨 뒤의 바로 앞에 있는 값은 정렬이 된 것.
 
 <br/>
 
