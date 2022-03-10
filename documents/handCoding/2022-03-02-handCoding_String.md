@@ -74,7 +74,7 @@ options: { hide: true }
     let left = 0;
     let right = str.length - 1;
 
-    while ((Math.floor(str.length / 2) + 1) !== left) {
+    while (Math.floor(str.length / 2) + 1 !== left) {
       [arrStr[left], arrStr[right]] = [arrStr[right], arrStr[left]];
       left++;
       right--;
@@ -84,3 +84,30 @@ options: { hide: true }
 
   solution('Apple');
   ```
+
+- 문자열 합치기
+
+  ```js
+  function solution(str) {
+    let [leftStr, rightStr] = ['', ''];
+    let [left, right] = [0, str.length - 1];
+
+    while (left < right) {
+      leftStr = str[left] + leftStr;
+      rightStr += str[right];
+      left++;
+      right--;
+    }
+    const isEven = str.length % 2 === 0;
+    const midStr = isEven ? '' : str[Math.floor(str.length / 2)];
+
+    return `${rightStr}${midStr}${leftStr}`;
+  }
+
+  solution('Apple');
+  solution('Banana');
+  ```
+  > 이 방법은 추천 할 방법일까..? 아닌 거 같은데 꼭..
+  - `str`의 길이가 짝수일 경우를 기준으로 추가함. (`left < right`)
+  - 홀수일 경우는 `rightStr`과 `leftStr`을 합칠 때 중간에 있는 문자를 넣어줌  
+    (`${rightStr}${midStr}${leftStr}`)
