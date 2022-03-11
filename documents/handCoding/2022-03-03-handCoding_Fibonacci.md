@@ -28,8 +28,9 @@ options: { hide: true }
 - 만약 `10`이 주어졌을 경우 `55`(`[1, 1, 2, 3, 5, 8, 13, 21, 34, 55]`)을 반환해야 함
 
 **[참고자료]**
-  - [JW MATHidea : 피보나치 수열](https://jwmath.tistory.com/117)
-  - [코딩 스낵 : 재귀 (2) - 피보나치 수열 (Fibonacci Series)](https://gusdnd852.tistory.com/95)
+
+- [JW MATHidea : 피보나치 수열](https://jwmath.tistory.com/117)
+- [코딩 스낵 : 재귀 (2) - 피보나치 수열 (Fibonacci Series)](https://gusdnd852.tistory.com/95)
 
 <br/>
 
@@ -68,6 +69,23 @@ options: { hide: true }
 
   - 값을 구할 때 현재 값의 위치 -2에 있는 값을 더해주어야 함. 만약 없다면 1로
   - _뭔가 보이는대로 구현한 듯.._
+
+- Array 활용 (원소 2개만 활용)
+
+  ```js
+  function solution(repeatNum) {
+    if (repeatNum <= 0) return;
+    if (repeatNum === 1) return 1;
+    function recursive(cnt = 2, values = [1, 1]) {
+      if (cnt === repeatNum) return values[values.length - 1];
+      const prevIdx = values.length - 1;
+      [values[prevIdx - 1], values[prevIdx]] = [values[prevIdx], values[prevIdx - 1] + values[prevIdx]];
+      return recursive(cnt + 1, values);
+    }
+    return recursive();
+  }
+  solution(10); // 55
+  ```
 
 <br/>
 

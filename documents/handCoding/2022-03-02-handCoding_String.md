@@ -74,7 +74,8 @@ options: { hide: true }
     let left = 0;
     let right = str.length - 1;
 
-    while (Math.floor(str.length / 2) + 1 !== left) {
+    const additionalValue = Number(str.length % 2 !== 0); // 홀수일 경우, while 조건에 1추가
+    while (Math.floor(str.length / 2) + additionalValue !== left) {
       [arrStr[left], arrStr[right]] = [arrStr[right], arrStr[left]];
       left++;
       right--;
@@ -83,6 +84,7 @@ options: { hide: true }
   }
 
   solution('Apple');
+  solution('Banana');
   ```
 
 - 문자열 합치기

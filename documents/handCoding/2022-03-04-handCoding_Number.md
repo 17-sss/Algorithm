@@ -27,19 +27,18 @@ options: { hide: true }
     - `X`가 중간 값보다 _크면_, 중간 값을 기준으로 _우측_ 의 데이터를 대상으로 함
     - 동일한 방법으로 다시 중간의 값을 임의로 선택하고 비교함.
 - **진법변환 (10진수 -> 2진수(, 8진수, 16진수 등..) 변환 공식**
-
   - 변환하려는 숫자를 (2, 8, 16진수)로 나누어 몫이 1이 되어 나누어지지 않을 때까지 나눠줌.
 
-
 **[참고자료]**
-  - [이진 탐색(Binary Search) 알고리즘 개념 이해 및 추가 예제](https://cjh5414.github.io/binary-search/)
-  - [[이진탐색] Leet code 704. Binary Search](https://velog.io/@rmswjdtn/이진탐색-Leet-code-704.-Binary-Search)
-  - [[진법변환] 2진수,8진수,10진수,16진수 쉽게 변환하는 방법 알아보기!](https://m.blog.naver.com/icbanq/221727893563)
-  - [[자바스크립트] 16진수와 10진수, 8진수, 2진수 변환하기](https://unikys.tistory.com/334)
+
+- [이진 탐색(Binary Search) 알고리즘 개념 이해 및 추가 예제](https://cjh5414.github.io/binary-search/)
+- [[이진탐색] Leet code 704. Binary Search](https://velog.io/@rmswjdtn/이진탐색-Leet-code-704.-Binary-Search)
+- [[진법변환] 2진수,8진수,10진수,16진수 쉽게 변환하는 방법 알아보기!](https://m.blog.naver.com/icbanq/221727893563)
+- [[자바스크립트] 16진수와 10진수, 8진수, 2진수 변환하기](https://unikys.tistory.com/334)
 
 <br/>
 
-<h3 id="01">01. 이진 탐색을 구현해보세요.</h3>
+<h3 id="01">01. 이진 탐색을 구현해보세요. (target의 index 반환)</h3>
 
 - 일반([리트코드 704](https://leetcode.com/problems/binary-search/))
 
@@ -73,10 +72,23 @@ options: { hide: true }
       result = (num % nType) + result;
       num = Math.floor(num / nType);
     }
+    return nType === 2 ? result.padStart(4, '0') : result;
+  }
+  ```
+
+- 2진수, 8진수 -> 10진수
+
+  ```js
+  function solution(strNum, nType = 2) {
+    const arrNum = strNum.split('');
+    let result = 0;
+    let startSquare = arrNum.length - 1;
+    while (arrNum.length) {
+      result += nType ** startSquare * arrNum.shift();
+      startSquare--;
+    }
     return result;
   }
-  solution(10, 2); // '1010'  // 10진수 -> 2진수 변환
-  solution(123, 8); // '173'  // 10진수 -> 8진수 변환
   ```
 
 <br/>
@@ -88,8 +100,8 @@ options: { hide: true }
   ```js
   function solution(...args) {
     const map = new Map(args.map((v) => [v, 0]));
-    for (let num = 1; num < 1000; num++) args.forEach((v) => num % v === 0 && map.set(v, map.get(v) + i));
-    return map;
+    for (let num = 1; num < 1000; num++) args.forEach((v) => num % v === 0 && map.set(v, map.get(v) + num));
+    return [...map.values()].reduce((prev, curr) => prev + curr);
   }
   solution(3, 5);
   ```
