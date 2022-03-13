@@ -22,7 +22,7 @@ function solution(id_list, report, k) {
   return result;
 }
 
-const pipeLog = (...funcs) => console.log(funcs);
+const pipeLog = (...funcs) => funcs.forEach((func) => console.log(func));
 pipeLog(
   solution(
     ['muzi', 'frodo', 'apeach', 'neo'],
